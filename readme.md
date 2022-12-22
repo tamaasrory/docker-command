@@ -118,7 +118,7 @@ docker container create --name customname --mount="type=bind,source=folder/path,
 Penjelasan paramater mount: <br>
 | paramater | keterangan |
 |----------|----------|
-| **type** | tipe yang dapat dipilih : mount, bind, atau volume |
+| **type** | tipe yang dapat dipilih: mount, bind, atau volume |
 | **source** | lokasi file atau folder di sistem host |
 | **destination** | lokasi file atau folder di container |
 | **readonly** | jika ada maka file atau folder hanya bisa dibaca di container tidak bisa ditulis. |
