@@ -1,14 +1,14 @@
 # DOCKER 
-    Secara sederhana docker adalah sebuah software container manager.
+Secara sederhana docker adalah sebuah software container manager.
 
 ## Docker Image
-    adalah sebuah installer seperti halnya aplikasi, docker image merupakan installer dari container # yang sudah memuat aplikasi dan dependency.
+adalah sebuah installer seperti halnya aplikasi, docker image merupakan installer dari container # yang sudah memuat aplikasi dan dependency.
 
 ## Docker Container
-    adalah gerbong yang memuat aplikasi kita dan dependency dari aplikasi kita yang dapat di sesuaikan sesuai kebutuhan kita seperti memory, cpus, volume / storage, environment variable, bind mount direktory. dan sifat nya terisolasi.
+adalah gerbong yang memuat aplikasi kita dan dependency dari aplikasi kita yang dapat di sesuaikan sesuai kebutuhan kita seperti memory, cpus, volume / storage, environment variable, bind mount direktory. dan sifat nya terisolasi.
 
 ## Docker Registry
-    adalah adalah tempat untuk mengupload image yang telah kita build, supaya mudah untuk disharing atau di gunakan di beberapa server
+adalah adalah tempat untuk mengupload image yang telah kita build, supaya mudah untuk disharing atau di gunakan di beberapa server
 
 ## Berikut Perintah untuk menggunakan docker
 
