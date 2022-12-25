@@ -215,6 +215,22 @@ docker container run --rm --name containername \
 --mount "type=volume,source=volumename,destination=/mount/to/folder" \ 
 ubuntu:latest tar cvf /folder/tujuan/namafilebackup.tar.gz /folder/yang/ingin/dibackup
 ```
+
 ### Restore Volume
+Tahapan Melakukan restore volume :
+
+1. Buat volume baru bila dibutuhkan, bila tidak bisa menggunakan volume yang sudah ada.
+   ```shell
+   docker volume create volumerestore
+   ```
+
+2. Jalankan ```container run``` dengan 2 --mount seperti backup volume sebagai instant container untuk melakukan restore data volume.
+    ```shell
+    docker container run --rm --name ubunturestore \ 
+    --mount "type=bind,source=/folder,destination=/mount/to/folder" \ 
+    --mount "type=volume,source=volumerestore,destination=/mount/to/folder" \ 
+    ubuntu: latest bash -c "cd /folder/restore && tar xvf /folder/backup.tar.gz --strip 1"
+    ```
+3. Done Restore Volume
 
 ## Docker Network
