@@ -117,7 +117,9 @@ fitur yang satu ini berguna untuk sharing folder antara host (computer) dan clie
 berikut perintah untuk melakukan mount pada saat pembuatan container baru.
 
 ```shell
-docker container create --name customname --mount="type=bind,source=folder/path,destination=folder/path" imagename:tag
+docker container create --name customname \ 
+--mount="type=bind,source=folder/path,destination=folder/path" \ 
+imagename:tag
 ```
 Penjelasan paramater mount: <br>
 | paramater | keterangan |
@@ -157,7 +159,9 @@ docker volume rm namavolume
 cara menggunakan volume pada saat membuat container sama dengan menggunakan bind mount, namun dengan menggunakan type volume dan source nama volume, seperti berikut.
 
 ```shell
-docker container create --name customname --mount="type=volume,source=volumename,destination=folder/path" imagename:tag
+docker container create --name customname \ 
+--mount="type=volume,source=volumename,destination=folder/path" \ 
+imagename:tag
 ```
 
 ### Step-by-Step Backup Volume
