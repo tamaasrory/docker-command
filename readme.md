@@ -159,3 +159,62 @@ cara menggunakan volume pada saat membuat container sama dengan menggunakan bind
 ```shell
 docker container create --name customname --mount="type=volume,source=volumename,destination=folder/path" imagename:tag
 ```
+
+### Step-by-Step Backup Volume
+Tahapan melakukan backup volume:
+
+1. Hentikan container yang akan dibackup supaya tidak terjadi perubahan data selama proses backup berlangsung.
+
+    ```shell
+    docker container stop containername
+    ```
+2. Buat sebuah container baru dengan custom nama dan 2 buah mounting, pertama mount folder sistem host untuk meletakkan hasil backup volume, dan yang mount kedua untuk mounting volume yang akan dibackup.
+
+    ```shell
+    docker container create --name containername \
+    --mount "type=bind,source=/hostfolder,desetination=/mount/to/folder" \ 
+    --mount "type=volume,source=volumename,destination=/mount/to/folder" \ 
+    imagename:tag
+    ```
+3. Setelah container berhasil dibuat. hidupkan container lalu lakukan perintah container exec untuk masuk ke container dan menjalankan perintah backup dengan perintah berikut
+
+    Hidupkan container
+    ```shell
+    docker container start containername
+    ```
+    Masuk ke terminal dalam container
+    ```shell
+    docker container exec -i -t containername /bin/bash
+    ```
+    Pastikan folder tujuan dan folder yang akan dibackup ada
+    ```shell
+    ls -la
+    ```
+    Membuat archive folder yang ingin di backup
+    ```shell
+    tar cvf /folder/tujuan/namafilebackup.tar.gz /folder/yang/ingin/dibackup
+    ```
+    Bila sudah selesai membuat archive, lakukan check pada folder host apakah filebackup sudah tersedia atau belum, bila sudah, lakukan perintah berikut.
+
+    Matikan container yang untuk backup tadi.
+    ```shell
+    docker container stop containername
+    ```
+    Lalu hapus container bila sudah tidak dibutuhkan lagi.
+    ```shell
+    docker container rm containername
+    ```
+    Done Backup Volume.
+
+### Short Way to Backup Volume
+Ada cara simple untuk backup volume, yaitu menggunakan ```container run``` dengan paramater ```--rm``` yang artinya container akan dibuat secara instant, dan akan langsung menjalankan perintah terminal untuk melakukan backup, lalu akan menghapus container secara otomatis ketika sudah selesai digunakan tanpa perlu menghapus secara manual.
+
+```shell
+docker container run --rm --name containername \ 
+--mount "type=bind,source=/hostfolder,destination=/mount/to/folder" \ 
+--mount "type=volume,source=volumename,destination=/mount/to/folder" \ 
+ubuntu:latest tar cvf /folder/tujuan/namafilebackup.tar.gz /folder/yang/ingin/dibackup
+```
+### Restore Volume
+
+## Docker Network
