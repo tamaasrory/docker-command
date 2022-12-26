@@ -10,7 +10,7 @@ adalah gerbong yang memuat aplikasi kita dan dependency dari aplikasi kita yang 
 ## Docker Registry
 adalah adalah tempat untuk mengupload image yang telah kita build, supaya mudah untuk disharing atau di gunakan di beberapa server. contohnya adalah hub.docker.com
 
-## Berikut Perintah untuk menggunakan docker
+## Docker Command
 
 ### Listing Image
 untuk melihat semua images yang ada
@@ -233,7 +233,7 @@ Tahapan Melakukan restore volume :
     docker container run --rm --name ubunturestore \ 
     --mount "type=bind,source=/folder,destination=/mount/to/folder" \ 
     --mount "type=volume,source=volumerestore,destination=/mount/to/folder" \ 
-    ubuntu: latest bash -c "cd /folder/restore && tar xvf /folder/backup.tar.gz --strip 1"
+    ubuntu:latest bash -c "cd /folder/restore && tar xvf /folder/backup.tar.gz --strip 1"
     ```
 3. Done Restore Volume
 
