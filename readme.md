@@ -238,3 +238,18 @@ Tahapan Melakukan restore volume :
 3. Done Restore Volume
 
 ## Docker Network
+docker memiliki kemampuan untuk membuat network dan memanage network (melihat, membuat, dan menghapus). 
+
+berikut beberapa jenis network driver yang dapat digunakan:
+1. **bridge**, digunakan untuk membuat network secara virtual dan container yang terkoneksi pada bridge netwrok yang sama dapat saling berkomunikasi.
+2. **host**, digunakan untuk membuat network yang sama dengan sistem host. (hanya linux saja)
+3. **none**, membuat network yang tidak bisa saling berkomunikasi
+
+### Listing Network
+
+Melihat daftar network yang sudah dibuat
+```shell
+docker network ls
+```
+
+### 
